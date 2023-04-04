@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colors</title>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // function changeBackGround(color, element) {
+            //     element.style.backgroundColor = color.innerHTML
+            // }
+
+            // let h1 = document.querySelector("#hello")
+            // const body = document.querySelector("body")
+            // let red = document.querySelector("#red")
+            // let blue = document.querySelector("#blue")
+            // let green = document.querySelector("#green")
+
+            // red.addEventListener("click", function (e) {
+            //     changeBackGround(red, h1)
+            // })
+            // blue.addEventListener("click", function (e) {
+            //     changeBackGround(blue, body)
+            // })
+            // green.addEventListener("click", function (e) {
+            //     changeBackGround(green, body)
+            // })
+
+            // Better design
+            let colors = document.querySelectorAll("button")
+            colors.forEach(button => {
+                button.onclick = function () {
+                    document.querySelector("#hello").style.color = button.dataset.color;
+                }
+            });
+
+            // USING THE SELECT
+            document.querySelector("select").onchange = function () {
+                document.querySelector("#hello").style.color = this.value
+                console.log("Setted")
+            }
+        })
+    </script>
+</head>
+
+<body>
+    <h1 id="hello">Helo, color!</h1>
+    <button data-color="red">Red</button>
+    <button data-color="blue">Blue</button>
+    <button data-color="green">Green</button>
+
+    <select name="buttons" id="">
+        <option value="black">black</option>
+        <option value="red">Red</option>
+        <option value="blue">Blue</option>
+        <option value="green">Green</option>
+    </select>
+</body>
+
+</html>
